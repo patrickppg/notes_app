@@ -1,5 +1,5 @@
 import { useState } from "react"
-import noteServices from "../services/notes"
+import loginServices from "../services/login"
 
 function LoginForm({ setLoggedUser }) {
   const [user, setUser] = useState({
@@ -17,7 +17,7 @@ function LoginForm({ setLoggedUser }) {
   async function handleSubmission(e) {
     e.preventDefault()
 
-    const loggedUser = await noteServices.login(user)
+    const loggedUser = await loginServices.login(user)
     if (!loggedUser) return
     window.sessionStorage.setItem("currentUser", JSON.stringify(loggedUser))
     setLoggedUser(loggedUser)

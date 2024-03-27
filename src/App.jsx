@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import LoginForm from "./components/loginForm"
+import UI from "./components/ui"
 
 const currentUser = JSON.parse(window.sessionStorage.getItem('currentUser'))
 
@@ -9,7 +10,7 @@ function App() {
   return (
     !loggedUser
       ? <LoginForm setLoggedUser={setLoggedUser} />
-      : 'user logged'
+      : <UI setLoggedUser={setLoggedUser} />
   )
 }
 
